@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "name": "pms",
+  "version": "1.0.0",
+  "description": "Product Management System using Node.js with Express and MongoDB",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sp18-pankajkushwaha/PMS.git"
+  },
+  "keywords": [
+    "pms"
+  ],
+  "author": "Pankaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sp18-pankajkushwaha/PMS/issues"
+  },
+  "homepage": "https://github.com/sp18-pankajkushwaha/PMS#readme"
+}
