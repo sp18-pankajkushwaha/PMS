@@ -6,7 +6,6 @@ A simple and effective Product Management System built with Node.js, Express, an
 
 - RESTful API for product management (CRUD)
 - Input validation for better data integrity
-- Filtering and pagination for product lists
 - Clean, modular codebase following best practices
 - Easily extendable for custom features
 - Built with Node.js, Express, and MongoDB
