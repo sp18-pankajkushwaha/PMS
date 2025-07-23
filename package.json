@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/sp18-pankajkushwaha/PMS/issues"
   },
-  "homepage": "https://github.com/sp18-pankajkushwaha/PMS#readme"
+  "homepage": "https://github.com/sp18-pankajkushwaha/PMS#readme",
+  "type": "module"
 }
