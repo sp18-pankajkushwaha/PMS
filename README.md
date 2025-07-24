@@ -1,4 +1,5 @@
 # Product Management System
+## Overview
 
 A simple and effective Product Management System built with Node.js, Express, and MongoDB. This project provides APIs to create, read, update, and delete products. It’s designed to help manage product data easily, with features like input validation and basic filtering, making it a solid starting point for any inventory or catalog management app.
 
@@ -18,10 +19,3 @@ A simple and effective Product Management System built with Node.js, Express, an
 - **JavaScript (ES6+)**
 - **dotenv** for configuration
 
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v14 or newer)
-- [MongoDB](https://www.mongodb.com/) (local or cloud instance)
-- [Git](https://git-scm.com/) (optional, for cloning the repository)
