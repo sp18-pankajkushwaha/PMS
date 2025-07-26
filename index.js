@@ -1,9 +1,12 @@
-import express, { urlencoded } from 'express'
-const app=express()
-app.use(express.json)
-app.use(urlencoded)
-const port=4000
+import express from 'express'
+import dotenv from 'dotenv'
 
-app.listen(port, (req,res)=>{
-    console.log(`Connected to Port ${port}`)
+dotenv.config()
+const app=express()
+app.use(express.json())
+const PORT=process.env.PORT
+
+
+app.listen(PORT, (req,res)=>{
+    console.log(`Connected to Port ${PORT}`)
 })
