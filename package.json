@@ -1,21 +1,26 @@
 {
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.4"
   },
   "name": "pms",
   "version": "1.0.0",
-  "description": "Product Management System using Node.js with Express and MongoDB",
+  "description": "A simple Product Management System built with Node.js, Express, and MongoDB. This project provides APIs to create, read, update, and delete products. It's designed to help manage product data easily with help of different APIs.",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sp18-pankajkushwaha/PMS.git"
   },
   "keywords": [
-    "pms"
+    "pms",
+    "nodejs",
+    "express"
   ],
   "author": "Pankaj",
   "license": "ISC",
