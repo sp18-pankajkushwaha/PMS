@@ -10,9 +10,6 @@ const PORT=process.env.PORT
 
 app.use(routes)
 
-
-
-
 dbConnect()
 app.listen(PORT,(req,res)=>{
     console.log(`Connected to Port: ${PORT}`)
