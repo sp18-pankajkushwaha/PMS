@@ -1,6 +1,6 @@
 import Product from "../models/products.js";
 
-export const getAll = async (req, res) => {
+export const get = async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);

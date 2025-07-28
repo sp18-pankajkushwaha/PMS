@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAll,
+  get,
   getById,
   create,
   update,
@@ -10,7 +10,7 @@ import { validateId, validateCreate, validateUpdate } from "./validator.js";
 
 const router = express.Router();
 
-router.get("/", getAll);
+router.get("/", get);
 router.get("/:id", validateId, getById);
 router.post("/products", validateCreate, create);
 router.put("/:id", validateId, validateUpdate, update);
