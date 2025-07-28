@@ -23,14 +23,13 @@ export const getById = async (req, res) => {
 export const create = async (req, res) => {
   try {
     const { name, price, description, category, inStock } = req.body;
-    const product = new Product({
+    const product =await Product.create({
       name,
       price,
       description,
       category,
       inStock,
     });
-    await product.save();
     res.status(201).json(product);
   } catch (err) {
     console.log("Error:", err);
