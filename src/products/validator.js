@@ -1,10 +1,23 @@
+import Product from "../models/products.js";
+
 const allowedFields = ["name", "price", "description", "category", "inStock"];
 
-export function validateId(req, res, next) {
+const trimStringFields = (data) => {
+  Object.keys(data).forEach((key) => {
+    if (typeof data[key] === "string") {
+      data[key] = data[key].trim();
+    }
+  });
+};
+
+export async function validateId(req, res, next) {
   const { id } = req.params;
   if (id && !id.match(/^[0-9a-fA-F]{24}$/)) {
     return res.status(400).json({ error: "Invalid MongoDB ObjectID format" });
   }
+  const product = await Product.findById(id);
+  if (!product)
+    return res.status(404).json({ error: "Product not found- Invalid ID" });
   next();
 }
 
@@ -59,11 +72,7 @@ function checkUnknownFields(body, res) {
 export function validateCreate(req, res, next) {
   if (checkUnknownFields(req.body, res)) return;
   const error = validateFields(req.body, res, true);
-  req.body.name = req.body.name.trim();
-  if (req.body.description != undefined)
-    req.body.description = req.body.description.trim();
-  if (req.body.category != undefined)
-    req.body.category = req.body.category.trim();
+  trimStringFields(req.body)
   if (error) return;
   next();
 }
@@ -71,11 +80,7 @@ export function validateCreate(req, res, next) {
 export function validateUpdate(req, res, next) {
   if (checkUnknownFields(req.body, res)) return;
   const error = validateFields(req.body, res, false);
-  if (req.body.name != undefined) req.body.name = req.body.name.trim();
-  if (req.body.description != undefined)
-    req.body.description = req.body.description.trim();
-  if (req.body.category != undefined)
-    req.body.category = req.body.category.trim();
+  trimStringFields(req.body)
   if (error) return;
   next();
 }

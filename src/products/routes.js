@@ -1,19 +1,13 @@
 import express from "express";
-import {
-  get,
-  getById,
-  create,
-  update,
-  deleteProduct,
-} from "./controller.js";
+import { index, get, create, update, destroy } from "./controller.js";
 import { validateId, validateCreate, validateUpdate } from "./validator.js";
 
-const router = express.Router();
+const productRouter = express.Router();
 
-router.get("/", get);
-router.get("/:id", validateId, getById);
-router.post("/products", validateCreate, create);
-router.put("/:id", validateId, validateUpdate, update);
-router.delete("/:id", validateId, deleteProduct);
+productRouter.get("/", index);
+productRouter.get("/:id", validateId, get);
+productRouter.post("/", validateCreate, create);
+productRouter.put("/:id", validateId, validateUpdate, update);
+productRouter.delete("/:id", validateId, destroy);
 
-export default router;
+export default productRouter;

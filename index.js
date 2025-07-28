@@ -1,14 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import dbConnect from "./src/config/dbConnection.js";
-import routes from "./src/products/routes.js";
+import router from "./src/routes/index.js";
 
 dotenv.config();
 const app = express();
 app.use(express.json());
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4002;
 
-app.use(routes);
+app.use(router);
 
 dbConnect();
 app.listen(PORT, (req, res) => {
