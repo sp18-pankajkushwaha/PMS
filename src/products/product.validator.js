@@ -1,4 +1,4 @@
-import Product from "../models/products.js";
+import Product from "../models/products.model.js";
 
 const allowedFields = ["name", "price", "description", "category", "inStock"];
 

@@ -1,6 +1,6 @@
 import express from "express";
-import { index, get, create, update, destroy } from "./controller.js";
-import { validateId, validateCreate, validateUpdate } from "./validator.js";
+import { index, get, create, update, destroy } from "./product.controllers.js";
+import { validateId, validateCreate, validateUpdate } from "./product.validator.js";
 
 const productRouter = express.Router();
 
