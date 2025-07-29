@@ -1,5 +1,5 @@
 import Product from "../models/products.model.js";
-
+import mongoose from 'mongoose';
 const allowedFields = ["name", "price", "description", "category", "inStock"];
 
 const trimStringFields = (data) => {
@@ -11,11 +11,11 @@ const trimStringFields = (data) => {
 };
 
 export async function validateId(req, res, next) {
-  const { id } = req.params;
-  if (id && !id.match(/^[0-9a-fA-F]{24}$/)) {
-    return res.status(400).json({ error: "Invalid MongoDB ObjectID format" });
+  const productId = req.params.id;
+  if (!mongoose.Types.ObjectId.isValid(productId)) {
+    return res.status(400).json({ message: "Invalid product ID format." });
   }
-  const product = await Product.findById(id);
+  const product = await Product.findById(productId);
   if (!product)
     return res.status(404).json({ error: "Product not found- Invalid ID" });
   next();
@@ -72,7 +72,7 @@ function checkUnknownFields(body, res) {
 export function validateCreate(req, res, next) {
   if (checkUnknownFields(req.body, res)) return;
   const error = validateFields(req.body, res, true);
-  trimStringFields(req.body)
+  trimStringFields(req.body);
   if (error) return;
   next();
 }
@@ -80,7 +80,7 @@ export function validateCreate(req, res, next) {
 export function validateUpdate(req, res, next) {
   if (checkUnknownFields(req.body, res)) return;
   const error = validateFields(req.body, res, false);
-  trimStringFields(req.body)
+  trimStringFields(req.body);
   if (error) return;
   next();
 }

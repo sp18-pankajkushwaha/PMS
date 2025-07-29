@@ -3,7 +3,7 @@ import Product from "../models/products.model.js";
 export const index = async (req, res) => {
   try {
     const products = await Product.find();
-    res.json(products);
+    res.status(200).json(products);
   } catch (err) {
     console.log("Error:", err.stack);
     res.status(500).json({
@@ -47,7 +47,9 @@ export const create = async (req, res) => {
 export const update = async (req, res) => {
   try {
     const productId = req.params.id;
-    const updated = await Product.findByIdAndUpdate(productId, req.body, {
+    const { name, price, description, category } = req.body;
+    const updatedData = { name, price, description, category };
+    const updated = await Product.findByIdAndUpdate(productId, updatedData, {
       new: true,
     });
     res.status(200).json(updated);
